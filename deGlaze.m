@@ -45,16 +45,56 @@ function deglazed_imgs = deGlaze()
         end
         
         % img = cat(3, r_ch, g_ch, b_ch);
-        figure, imshow(img);
-        hold on;
         if idx == 1
+            img_degl = interpolate_glaze(file_names, i, mask_l, window_size, saturation_thresh);
+            figure, imshow(horzcat(img, img_degl));
+            hold on;
             rectangle('Position', [1, ht * 0.4, wid / 2, ht * 0.6], 'EdgeColor', 'g', 'LineWidth', 1);
         elseif idx == 2
+            img_degl = interpolate_glaze(file_names, i, mask_c, window_size, saturation_thresh);
+            figure, imshow(horzcat(img, img_degl));
+            hold on;
             rectangle('Position', [wid / 4, ht * 0.4, wid / 2, ht * 0.6], 'EdgeColor', 'g', 'LineWidth', 1);
         else
+            img_degl = interpolate_glaze(file_names, i, mask_r, window_size, saturation_thresh);
+            figure, imshow(horzcat(img, img_degl));
+            hold on;
             rectangle('Position', [wid / 2, ht * 0.4, wid / 2, ht * 0.6], 'EdgeColor', 'g', 'LineWidth', 1);
         end
     end
+end
+
+function interp_img = interpolate_glaze(file_names, img_idx, mask, window, thresh)
+    fprintf("%d\n", img_idx);
+    img = imread(file_names{img_idx});
+    [ht, wid, ~] = size(img);
+    r_ch = img(:, :, 1);
+    g_ch = img(:, :, 2);
+    b_ch = img(:, :, 3);
+    [r, c] = find(r_ch > thresh & g_ch > thresh & b_ch > thresh);
+    
+    for idx = 1 : img_idx + window / 2
+        window_img = imread(file_names{img_idx + idx});
+        %figure('Name', 'Window'); imshow(window_img);
+        win_r_ch = window_img(:, :, 1);
+        win_g_ch = window_img(:, :, 2);
+        win_b_ch = window_img(:, :, 3);
+        
+        for i = size(r):-1:1
+            if mask(r(i), c(i)) == 1
+                if win_r_ch(r(i), c(i)) < thresh
+                    r_ch(r(i), c(i)) = win_r_ch(r(i), c(i));
+                end
+                if win_g_ch(r(i), c(i)) < thresh
+                    g_ch(r(i), c(i)) = win_g_ch(r(i), c(i));
+                end
+                if win_b_ch(r(i), c(i)) < thresh
+                    b_ch(r(i), c(i)) = win_b_ch(r(i), c(i));
+                end
+            end
+        end
+    end
+    interp_img = cat(3, win_r_ch, win_g_ch, win_b_ch);
 end
 
 function num_glaze_pixels = findGlazePixels(img, mask, thresh)
