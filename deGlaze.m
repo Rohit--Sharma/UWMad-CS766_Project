@@ -16,9 +16,9 @@ function deglazed_imgs = deGlaze()
     saturation_thresh = 180;
     
     num_imgs = size(file_names, 2);
-    window_size = 20;
+    window_size = 10;
     
-    for i = 1 : 5
+    for i = 1 : num_imgs
         img = imread(file_names{i});
 
         mask_top = zeros(ht * 0.4, wid);
@@ -45,27 +45,27 @@ function deglazed_imgs = deGlaze()
         % img = cat(3, r_ch, g_ch, b_ch);
         if idx == 1
             img_degl = interpolate_glaze(file_names, i, mask_l, window_size, saturation_thresh);
-            figure, imshow(horzcat(img, img_degl));
-            hold on;
-            rectangle('Position', [1, ht * 0.4, wid / 2, ht * 0.6], 'EdgeColor', 'g', 'LineWidth', 1);
+%             figure, imshow(horzcat(img, img_degl));
+%             hold on;
+%             rectangle('Position', [1, ht * 0.4, wid / 2, ht * 0.6], 'EdgeColor', 'g', 'LineWidth', 1);
             new_file_name = strrep(file_names{i}, '.jpg', '_deglaze.jpg');
             new_file_name = strip(new_file_name);
             fprintf(deglaze_fileId, '%s\n', new_file_name);
             imwrite(img_degl, new_file_name);
         elseif idx == 2
             img_degl = interpolate_glaze(file_names, i, mask_c, window_size, saturation_thresh);
-            figure, imshow(horzcat(img, img_degl));
-            hold on;
-            rectangle('Position', [wid / 4, ht * 0.4, wid / 2, ht * 0.6], 'EdgeColor', 'g', 'LineWidth', 1);
+%             figure, imshow(horzcat(img, img_degl));
+%             hold on;
+%             rectangle('Position', [wid / 4, ht * 0.4, wid / 2, ht * 0.6], 'EdgeColor', 'g', 'LineWidth', 1);
             new_file_name = strrep(file_names{i}, '.jpg', '_deglaze.jpg');
             new_file_name = strip(new_file_name);
             fprintf(deglaze_fileId, '%s\n', new_file_name);
             imwrite(img_degl, new_file_name);
         else
             img_degl = interpolate_glaze(file_names, i, mask_r, window_size, saturation_thresh);
-            figure, imshow(horzcat(img, img_degl));
-            hold on;
-            rectangle('Position', [wid / 2, ht * 0.4, wid / 2, ht * 0.6], 'EdgeColor', 'g', 'LineWidth', 1);
+%             figure, imshow(horzcat(img, img_degl));
+%             hold on;
+%             rectangle('Position', [wid / 2, ht * 0.4, wid / 2, ht * 0.6], 'EdgeColor', 'g', 'LineWidth', 1);
             new_file_name = strrep(file_names{i}, '.jpg', '_deglaze.jpg');
             new_file_name = strip(new_file_name);
             fprintf(deglaze_fileId, '%s\n', new_file_name);
@@ -82,18 +82,20 @@ function interp_img = interpolate_glaze(file_names, img_idx, mask, window, thres
     
     direc = dir(fullfile(endout{1}, endout{2}, '*0.jpg'));
     val = {direc.name};
-    full_file_idx = find(strcmp([val], endout{3}))
+    full_file_idx = find(strcmp([val], endout{3}));
+    orig_file = fullfile(endout{1}, endout{2}, val(full_file_idx));
     
     [ht, wid, ~] = size(img);
     r_ch = img(:, :, 1);
     g_ch = img(:, :, 2);
     b_ch = img(:, :, 3);
     [r, c] = find(r_ch > thresh | g_ch > thresh | b_ch > thresh);
-    
-    for idx = 1 : full_file_idx + window / 2
-        if idx < size(val)
+%     1 : window / 2
+%     size(val)
+    for idx = 1 : window / 2
+        if idx + full_file_idx < size(val,2)
             neigh_file_name = fullfile(endout{1}, endout{2}, val(idx + full_file_idx));
-            window_img = imread(neigh_file_name);
+            window_img = imread(neigh_file_name{1});
             %figure('Name', 'Window'); imshow(window_img);
             win_r_ch = window_img(:, :, 1);
             win_g_ch = window_img(:, :, 2);
