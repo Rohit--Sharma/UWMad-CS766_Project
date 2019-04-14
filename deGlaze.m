@@ -49,6 +49,7 @@ function deglazed_imgs = deGlaze()
             %hold on;
             %rectangle('Position', [1, ht * 0.4, wid / 2, ht * 0.6], 'EdgeColor', 'g', 'LineWidth', 1);
             new_file_name = strrep(file_names{i}, '.jpg', '_deglaze.jpg');
+            new_file_name = strip(new_file_name)
             fprintf(deglaze_fileId, '%s\n', new_file_name);
             imwrite(img_degl, new_file_name);
         elseif idx == 2
@@ -57,6 +58,7 @@ function deglazed_imgs = deGlaze()
             %hold on;
             %rectangle('Position', [wid / 4, ht * 0.4, wid / 2, ht * 0.6], 'EdgeColor', 'g', 'LineWidth', 1);
             new_file_name = strrep(file_names{i}, '.jpg', '_deglaze.jpg');
+            new_file_name = strip(new_file_name)
             fprintf(deglaze_fileId, '%s\n', new_file_name);
             imwrite(img_degl, new_file_name);
         else
@@ -65,6 +67,7 @@ function deglazed_imgs = deGlaze()
             %hold on;
             %rectangle('Position', [wid / 2, ht * 0.4, wid / 2, ht * 0.6], 'EdgeColor', 'g', 'LineWidth', 1);
             new_file_name = strrep(file_names{i}, '.jpg', '_deglaze.jpg');
+            new_file_name = strip(new_file_name)
             fprintf(deglaze_fileId, '%s\n', new_file_name);
             imwrite(img_degl, new_file_name);
         end
@@ -72,7 +75,7 @@ function deglazed_imgs = deGlaze()
 end
 
 function interp_img = interpolate_glaze(file_names, img_idx, mask, window, thresh)
-    fprintf("%d\n", img_idx);
+    %fprintf("%d\n", img_idx);
     img = imread(file_names{img_idx});
     [ht, wid, ~] = size(img);
     r_ch = img(:, :, 1);
@@ -81,18 +84,20 @@ function interp_img = interpolate_glaze(file_names, img_idx, mask, window, thres
     [r, c] = find(r_ch > thresh | g_ch > thresh | b_ch > thresh);
     
     for idx = 1 : img_idx + window / 2
-        window_img = imread(file_names{img_idx + idx});
-        %figure('Name', 'Window'); imshow(window_img);
-        win_r_ch = window_img(:, :, 1);
-        win_g_ch = window_img(:, :, 2);
-        win_b_ch = window_img(:, :, 3);
-        
-        for i = size(r):-1:1
-            if mask(r(i), c(i)) == 1
-                if win_r_ch(r(i), c(i)) < thresh & win_g_ch(r(i), c(i)) < thresh & win_b_ch(r(i), c(i)) < thresh
-                    r_ch(r(i), c(i)) = win_r_ch(r(i), c(i));
-                    g_ch(r(i), c(i)) = win_g_ch(r(i), c(i));
-                    b_ch(r(i), c(i)) = win_b_ch(r(i), c(i));
+        if idx < size(file_names)
+            window_img = imread(file_names{img_idx + idx});
+            %figure('Name', 'Window'); imshow(window_img);
+            win_r_ch = window_img(:, :, 1);
+            win_g_ch = window_img(:, :, 2);
+            win_b_ch = window_img(:, :, 3);
+
+            for i = size(r) : -1 : 1
+                if mask(r(i), c(i)) == 1
+                    if win_r_ch(r(i), c(i)) < thresh & win_g_ch(r(i), c(i)) < thresh & win_b_ch(r(i), c(i)) < thresh
+                        r_ch(r(i), c(i)) = win_r_ch(r(i), c(i));
+                        g_ch(r(i), c(i)) = win_g_ch(r(i), c(i));
+                        b_ch(r(i), c(i)) = win_b_ch(r(i), c(i));
+                    end
                 end
             end
         end
