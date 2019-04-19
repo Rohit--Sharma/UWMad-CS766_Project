@@ -1,8 +1,6 @@
 function deglazed_imgs = deGlaze()
     glaze_images = 'data/list/test_split/test2_hlight.txt';
-    deglaze_images = 'data/list/test_split/test2_hlight_deglaze.txt';
     fileId = fopen(glaze_images, 'r');
-    deglaze_fileId = fopen(deglaze_images, 'w');
     
     files = {};
     tline = fgetl(fileId);
@@ -13,7 +11,7 @@ function deglazed_imgs = deGlaze()
     end
     file_names = files;
     [ht, wid, ~] = size(imread(file_names{1}));
-    saturation_thresh = 180;
+    saturation_thresh = 210;
     
     num_imgs = size(file_names, 2);
     window_size = 10;
@@ -44,31 +42,34 @@ function deglazed_imgs = deGlaze()
         
         % img = cat(3, r_ch, g_ch, b_ch);
         if idx == 1
+            glaze_annot_img = annotateGlazePixels(img, mask_l, saturation_thresh);
+            
             img_degl = interpolate_glaze(file_names, i, mask_l, window_size, saturation_thresh);
-%             figure, imshow(horzcat(img, img_degl));
-%             hold on;
-%             rectangle('Position', [1, ht * 0.4, wid / 2, ht * 0.6], 'EdgeColor', 'g', 'LineWidth', 1);
+            % figure('Name', file_names{i}), imshow(horzcat(glaze_annot_img, img_degl));
+            % hold on;
+            % rectangle('Position', [1, ht * 0.4, wid / 2, ht * 0.6], 'EdgeColor', 'g', 'LineWidth', 1);
             new_file_name = strrep(file_names{i}, '.jpg', '_deglaze.jpg');
             new_file_name = strip(new_file_name);
-            fprintf(deglaze_fileId, '%s\n', new_file_name);
             imwrite(img_degl, new_file_name);
         elseif idx == 2
+            glaze_annot_img = annotateGlazePixels(img, mask_c, saturation_thresh);
+            
             img_degl = interpolate_glaze(file_names, i, mask_c, window_size, saturation_thresh);
-%             figure, imshow(horzcat(img, img_degl));
-%             hold on;
-%             rectangle('Position', [wid / 4, ht * 0.4, wid / 2, ht * 0.6], 'EdgeColor', 'g', 'LineWidth', 1);
+            % figure('Name', file_names{i}), imshow(horzcat(glaze_annot_img, img_degl));
+            % hold on;
+            % rectangle('Position', [wid / 4, ht * 0.4, wid / 2, ht * 0.6], 'EdgeColor', 'g', 'LineWidth', 1);
             new_file_name = strrep(file_names{i}, '.jpg', '_deglaze.jpg');
             new_file_name = strip(new_file_name);
-            fprintf(deglaze_fileId, '%s\n', new_file_name);
             imwrite(img_degl, new_file_name);
         else
+            glaze_annot_img = annotateGlazePixels(img, mask_r, saturation_thresh);
+            
             img_degl = interpolate_glaze(file_names, i, mask_r, window_size, saturation_thresh);
-%             figure, imshow(horzcat(img, img_degl));
-%             hold on;
-%             rectangle('Position', [wid / 2, ht * 0.4, wid / 2, ht * 0.6], 'EdgeColor', 'g', 'LineWidth', 1);
+            % figure('Name', file_names{i}), imshow(horzcat(glaze_annot_img, img_degl));
+            % hold on;
+            % rectangle('Position', [wid / 2, ht * 0.4, wid / 2, ht * 0.6], 'EdgeColor', 'g', 'LineWidth', 1);
             new_file_name = strrep(file_names{i}, '.jpg', '_deglaze.jpg');
             new_file_name = strip(new_file_name);
-            fprintf(deglaze_fileId, '%s\n', new_file_name);
             imwrite(img_degl, new_file_name);
         end
     end
@@ -127,4 +128,20 @@ function num_glaze_pixels = findGlazePixels(img, mask, thresh)
             num_glaze_pixels = num_glaze_pixels + 1;
         end
     end
+end
+
+function glaze_pixels_annotated = annotateGlazePixels(img, mask, thresh)
+    [ht, wid, ~] = size(img);
+    r_ch = img(:, :, 1);
+    g_ch = img(:, :, 2);
+    b_ch = img(:, :, 3);
+    [r, c] = find(r_ch > thresh | g_ch > thresh | b_ch > thresh);
+    for idx = 1 : size(r)
+        if r(idx) > (ht * 0.4) && mask(r(idx), c(idx)) == 1
+            r_ch(r(idx), c(idx)) = 0;
+            g_ch(r(idx), c(idx)) = 255;
+            b_ch(r(idx), c(idx)) = 0;
+        end
+    end
+    glaze_pixels_annotated = cat(3, r_ch, g_ch, b_ch);
 end
