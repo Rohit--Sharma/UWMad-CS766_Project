@@ -1,0 +1,8 @@
+remote_theme: pmarsceill/just-the-docs
+
+title: Computer Vision
+search_enabled: true
+
+aux_links:
+  "View GitHub Repository":
+    - "https://github.com/Rohit--Sharma/UWMad-CS766_Project"
