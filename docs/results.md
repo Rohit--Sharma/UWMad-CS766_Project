@@ -47,4 +47,9 @@ As it can be clearly seen that the F1 score has improved from left to right. An 
 
 Initially, with just deglaze, we were able to increase the F1 score slightly, but it also led to decrease in precision. However, after incorporating optical flow, we were able to improve the Precision over SCNN model also slightly. One could argue that this result is not statistically significant. But this may be because the the dataset of glaze images is too less (486 images) and we are confident that with our approach, given a bigger dataset, we can achieve a significant improvement of lane detection in glaze conditions.
 
+The below video shows lane predictions by the model on real data:
+
+![Video_normal](images/result_normal.gif?raw=true "Video_normal")
+
+
 {% include lib/mathjax.html %}
