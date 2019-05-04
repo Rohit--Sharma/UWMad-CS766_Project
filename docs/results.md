@@ -10,33 +10,32 @@ F1 = 2 Precision Recall / (Precision + Recall)
 # Results on Glaze Subset:
 After the preprocessing step of de-glazing is applied on all the images with glaze, the deglazed images were then used to train the SCNN model and the results were evaluated as described above. The following tables show the results of trained model just on the subset of images with glaze. The leftmost table shows the performance of just SCNN model. The next table shows the performance of SCNN model with deglaze preprocessing. The final table shows the performance of SCNN model with deglaze interpolation done by incorporating optical flow information.
 
-<table>
+<table align="center">
 <tr><th>SCNN</th><th>SCNN + DeGlaze</th><th>SCNN + DeGlaze + Flow</th></tr>
-<tr><td>
-
-| Measure | Value |
-| :---: | :---: |
-| Precision | 0.5762 |
-| Recall | 0.5519 |
-| F1-Measure | 0.5638 |
-
+<tr>
+<td>
+<table>
+<tr><th>Measure</th><th>Value</th></tr>
+<tr><td>Precision</td><td>0.5762</td></tr>
+<tr><td>Recall</td><td>0.5519</td></tr>
+<tr><td>F1-Measure</td><td>0.5638</td></tr>
+</table>
 </td><td>
-
-| Measure | Value |
-| :---: | :---: |
-| Precision | 0.5717 |
-| Recall | 0.5651 |
-| F1-Measure | 0.5684 |
-
+<table>
+<tr><th>Measure</th><th>Value</th></tr>
+<tr><td>Precision</td><td>0.5717</td></tr>
+<tr><td>Recall</td><td>0.5651</td></tr>
+<tr><td>F1-Measure</td><td>0.5684</td></tr>
+</table>
 </td><td>
-
-| Measure | Value |
-| :---: | :---: |
-| Precision | 0.5783 |
-| Recall | 0.5636 |
-| F1-Measure | 0.5708 |
-
-</td></tr>
+<table>
+<tr><th>Measure</th><th>Value</th></tr>
+<tr><td>Precision</td><td>0.5783</td></tr>
+<tr><td>Recall</td><td>0.5636</td></tr>
+<tr><td>F1-Measure</td><td>0.5708</td></tr>
+</table>
+</td>
+</tr>
 </table>
 
 As it can be clearly seen that the F1 score has improved from left to right. An improvement of `0.82%` in F1 measure was achieved over the state of the art model with just Deglaze preprocessing and an improvement of `1.3%` with incorporating optical flow information while interpolating.
