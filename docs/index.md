@@ -16,17 +16,12 @@ nav_order: 1
 
 ---
 
-## Introduction
-{: .d-inline }
-Coming Soon
-{: .label .label-yellow }
+## [Introduction](introduction.md)
 
-## Methodology
-{: .d-inline }
-Coming Soon
-{: .label .label-yellow }
+## [Methodology](methodology.md)
 
-## Results
-{: .d-inline }
-Coming Soon
-{: .label .label-yellow }
+## [Results](results.md)
+
+## Conclusion:
+
+### References:
