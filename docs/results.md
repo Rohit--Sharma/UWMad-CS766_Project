@@ -48,3 +48,5 @@ After the preprocessing step of de-glazing is applied on all the images with gla
 As it can be clearly seen that the F1 score has improved from left to right. An improvement of `0.82%` in F1 measure was achieved over the state of the art model with just Deglaze preprocessing and an improvement of `1.3%` with incorporating optical flow information while interpolating.
 
 Initially, with just deglaze, we were able to increase the F1 score slightly, but it also led to decrease in precision. However, after incorporating optical flow, we were able to improve the Precision over SCNN model also slightly. One could argue that this result is not statistically significant. But this may be because the the dataset of glaze images is too less (486 images) and we are confident that with our approach, given a bigger dataset, we can achieve a significant improvement of lane detection in glaze conditions.
+
+{% include lib/mathjax.html %}
