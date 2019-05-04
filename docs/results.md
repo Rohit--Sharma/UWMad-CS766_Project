@@ -1,4 +1,4 @@
-# Evaluation:
+# Evaluation Metric:
 To evaluate the predictions of lane markings against the ground truth, the lane markings are viewed as lines with 30 pixel width. Then, the **Jaccard Similarity** score or the **Intersection-over-union (IoU)** is computed between the ground truth and the predictions. To see which predictions are true positives (TP), a threshold of 0.5 is used on the Jaccard similarity value. Precision and Recall are calculated using TP, FP and FN as follows:
 
 ```
