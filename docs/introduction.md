@@ -111,7 +111,7 @@ In the below, we show the distribution of the CULane dataset accross various sce
 
 <p float="left">
     CULane Chart
-	<img title="Title Tag Goes Here" src="images/culanechart.png" width="500" />
+	<img title="Title Tag Goes Here" src="images/test.png" width="500" />
 </p>
 
 The figure below shows the labled markings for a small subset of the frames in CULane.
