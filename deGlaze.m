@@ -1,5 +1,5 @@
 function deglazed_imgs = deGlaze()
-    glaze_images = 'data/list/test_split/test2_selected_deglaze.txt';
+    glaze_images = 'data/list/test_split/test2_hlight_selected.txt';
     fileId = fopen(glaze_images, 'r');
     
     files = {};
@@ -14,7 +14,7 @@ function deglazed_imgs = deGlaze()
     saturation_thresh = 180;
     
     num_imgs = size(file_names, 2);
-    window_size = 10;
+    window_size = 6;
     
     for i = 1 : num_imgs
         fprintf("%s\n", file_names{i});
@@ -44,33 +44,33 @@ function deglazed_imgs = deGlaze()
         
         % img = cat(3, r_ch, g_ch, b_ch);
         if idx == 1
-            glaze_annot_img = annotateGlazePixels(img, mask_l, saturation_thresh);
+            %glaze_annot_img = annotateGlazePixels(img, mask_l, saturation_thresh);
             
-            img_degl = interpolate_glaze(file_names, i, mask_l, window_size, saturation_thresh);
+            img_degl = interpolate_glaze(file_names, i, mask_l, window_size, saturation_thresh, idx);
 %             figure('Name', file_names{i}), imshow(horzcat(glaze_annot_img, img_degl));
 %             hold on;
 %             rectangle('Position', [1, ht * 0.4, wid / 2, ht * 0.6], 'EdgeColor', 'g', 'LineWidth', 1);
-            new_file_name = strrep(file_names{i}, '.jpg', '_deglaze_sm.jpg');
+            new_file_name = strrep(file_names{i}, '.jpg', '_deglaze_flow.jpg');
             new_file_name = strip(new_file_name);
             imwrite(img_degl, new_file_name);
         elseif idx == 2
-            glaze_annot_img = annotateGlazePixels(img, mask_c, saturation_thresh);
+            %glaze_annot_img = annotateGlazePixels(img, mask_c, saturation_thresh);
             
-            img_degl = interpolate_glaze(file_names, i, mask_c, window_size, saturation_thresh);
+            img_degl = interpolate_glaze(file_names, i, mask_c, window_size, saturation_thresh, idx);
 %             figure('Name', file_names{i}), imshow(horzcat(glaze_annot_img, img_degl));
 %             hold on;
 %             rectangle('Position', [wid / 4, ht * 0.4, wid / 2, ht * 0.6], 'EdgeColor', 'g', 'LineWidth', 1);
-            new_file_name = strrep(file_names{i}, '.jpg', '_deglaze_sm.jpg');
+            new_file_name = strrep(file_names{i}, '.jpg', '_deglaze_flow.jpg');
             new_file_name = strip(new_file_name);
             imwrite(img_degl, new_file_name);
         else
-            glaze_annot_img = annotateGlazePixels(img, mask_r, saturation_thresh);
+            %glaze_annot_img = annotateGlazePixels(img, mask_r, saturation_thresh);
             
-            img_degl = interpolate_glaze(file_names, i, mask_r, window_size, saturation_thresh);
+            img_degl = interpolate_glaze(file_names, i, mask_r, window_size, saturation_thresh, idx);
 %             figure('Name', file_names{i}), imshow(horzcat(glaze_annot_img, img_degl));
 %             hold on;
 %             rectangle('Position', [wid / 2, ht * 0.4, wid / 2, ht * 0.6], 'EdgeColor', 'g', 'LineWidth', 1);
-            new_file_name = strrep(file_names{i}, '.jpg', '_deglaze_sm.jpg');
+            new_file_name = strrep(file_names{i}, '.jpg', '_deglaze_flow.jpg');
             new_file_name = strip(new_file_name);
             imwrite(img_degl, new_file_name);
         end
@@ -100,6 +100,8 @@ function interp_img = interpolate_glaze(file_names, img_idx, mask, window, thres
             neigh_file_name = fullfile(endout{1}, endout{2}, val(idx + full_file_idx));
             window_img = imread(neigh_file_name{1});
             
+            flow_vec = computeFlow(img, window_img, 128, 96, [30, 82], mask, mask_idx);
+            
             %figure('Name', 'Window'); imshow(window_img);
             win_r_ch = window_img(:, :, 1);
             win_g_ch = window_img(:, :, 2);
@@ -108,9 +110,11 @@ function interp_img = interpolate_glaze(file_names, img_idx, mask, window, thres
             for i = size(r) : -1 : 1
                 if mask(r(i), c(i)) == 1
                     if win_r_ch(r(i), c(i)) < thresh & win_g_ch(r(i), c(i)) < thresh & win_b_ch(r(i), c(i)) < thresh
-                        r_ch(r(i), c(i)) = win_r_ch(r(i), c(i));
-                        g_ch(r(i), c(i)) = win_g_ch(r(i), c(i));
-                        b_ch(r(i), c(i)) = win_b_ch(r(i), c(i));
+                        if c(i) - round(flow_vec(2)) > 0 && c(i) - round(flow_vec(2)) < wid && r(i) - round(flow_vec(1)) > 0 && r(i) - round(flow_vec(1)) < ht
+                            r_ch(r(i), c(i)) = win_r_ch(r(i) - round(flow_vec(1)), c(i) - round(flow_vec(2)));
+                            g_ch(r(i), c(i)) = win_g_ch(r(i) - round(flow_vec(1)), c(i) - round(flow_vec(2)));
+                            b_ch(r(i), c(i)) = win_b_ch(r(i) - round(flow_vec(1)), c(i) - round(flow_vec(2)));
+                        end
                     end
                 end
             end
@@ -119,18 +123,18 @@ function interp_img = interpolate_glaze(file_names, img_idx, mask, window, thres
     
     %figure(), imshow(img);
     
-    [x, y] = find(mask > 0);
-    y_start = min(y);
-    y_end = max(y);
-    x_start = min(x);
-    x_end = max(x);
-    H = fspecial('gaussian', 10, 2);
-    sub_r_ch = r_ch(x_start:x_end, y_start:y_end);
-    r_ch(x_start:x_end, y_start:y_end) = imfilter(sub_r_ch, H, 'replicate');
-    sub_g_ch = g_ch(x_start:x_end, y_start:y_end);
-    g_ch(x_start:x_end, y_start:y_end) = imfilter(sub_g_ch, H, 'replicate');
-    sub_b_ch = b_ch(x_start:x_end, y_start:y_end);
-    b_ch(x_start:x_end, y_start:y_end) = imfilter(sub_b_ch, H, 'replicate');
+%     [x, y] = find(mask > 0);
+%     y_start = min(y);
+%     y_end = max(y);
+%     x_start = min(x);
+%     x_end = max(x);
+%     H = fspecial('gaussian', 10, 2);
+%     sub_r_ch = r_ch(x_start:x_end, y_start:y_end);
+%     r_ch(x_start:x_end, y_start:y_end) = imfilter(sub_r_ch, H, 'replicate');
+%     sub_g_ch = g_ch(x_start:x_end, y_start:y_end);
+%     g_ch(x_start:x_end, y_start:y_end) = imfilter(sub_g_ch, H, 'replicate');
+%     sub_b_ch = b_ch(x_start:x_end, y_start:y_end);
+%     b_ch(x_start:x_end, y_start:y_end) = imfilter(sub_b_ch, H, 'replicate');
     
     
     interp_img = cat(3, r_ch, g_ch, b_ch);

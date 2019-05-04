@@ -1,7 +1,9 @@
-function result = computeFlow(img1, img2, win_radius, template_radius, grid_MN, mask)
+function average_flow = computeFlow(img1, img2, win_radius, template_radius, grid_MN, mask, mask_idx)
     mask = flip(flip(mask), 2);
-    [ht, wid] = size(img1);
+    [ht, wid, ~] = size(img1);
     opticalFlow = zeros(grid_MN(1), grid_MN(2), 2);
+    average_flow = zeros(2, 1);
+    num_flow = 0;
     
     c = 1;
     for x = round(wid / (grid_MN(2) + 1)) + 1 : round(wid / (grid_MN(2) + 1)) : wid - round(wid / (grid_MN(2) + 1))
@@ -24,26 +26,55 @@ function result = computeFlow(img1, img2, win_radius, template_radius, grid_MN, 
                 % Remove the extra padding added by normxcorr2 function
                 cross_corr = cross_corr(size(src_template, 1) : size(cross_corr, 1) - size(src_template, 1), size(src_template, 2) : size(cross_corr, 2) - size(src_template, 2));
                 [y_match, x_match] = find(cross_corr == max(cross_corr(:)));
+                y_match = y_match(1);
+                x_match = x_match(1);
 
                 % Transform the coordinates to original frame of reference
                 % while finding the optical flow vector direction
-                opticalFlow(y, x, :) = [x_match - (src_x_strt - dest_x_strt + 1), y_match - (src_y_strt - dest_y_strt + 1)];
+                if mask_idx == 1
+                    if (x_match - (src_x_strt - dest_x_strt + 1) > 0) && (y_match - (src_y_strt - dest_y_strt + 1) < 0)
+                        opticalFlow(y, x, :) = [x_match - (src_x_strt - dest_x_strt + 1), y_match - (src_y_strt - dest_y_strt + 1)];
+                        average_flow(1) = average_flow(1) + x_match - (src_x_strt - dest_x_strt + 1);
+                        average_flow(2) = average_flow(2) + y_match - (src_y_strt - dest_y_strt + 1);
+                        num_flow = num_flow + 1;
+                    end
+                elseif mask_idx == 2
+                    opticalFlow(y, x, :) = [x_match - (src_x_strt - dest_x_strt + 1), y_match - (src_y_strt - dest_y_strt + 1)];
+                    average_flow(1) = average_flow(1) + x_match - (src_x_strt - dest_x_strt + 1);
+                    average_flow(2) = average_flow(2) + y_match - (src_y_strt - dest_y_strt + 1);
+                    num_flow = num_flow + 1;
+                else
+                    if (x_match - (src_x_strt - dest_x_strt + 1) < 0) && (y_match - (src_y_strt - dest_y_strt + 1)) < 0
+                        opticalFlow(y, x, :) = [x_match - (src_x_strt - dest_x_strt + 1), y_match - (src_y_strt - dest_y_strt + 1)];
+                        average_flow(1) = average_flow(1) + x_match - (src_x_strt - dest_x_strt + 1);
+                        average_flow(2) = average_flow(2) + y_match - (src_y_strt - dest_y_strt + 1);
+                        num_flow = num_flow + 1;
+                    end
+                end
             end
             r = r + 1;
         end
         c = c + 1;
     end
     
+    average_flow = average_flow / num_flow;
+    
     % Draw the needle plot on img1.
     % TODO: This takes very long. Optimize it?
-    fig = figure;
-    imshow(img1);
-    hold on;
-    for y = round(ht / (grid_MN(1) + 1)) + 1 : round(ht / (grid_MN(1) + 1)) : ht
-        for x = round(wid / (grid_MN(2) + 1)) + 1 : round(wid / (grid_MN(2) + 1)) : wid - round(wid / (grid_MN(2) + 1))
-            quiver(x, y, opticalFlow(y, x, 1), opticalFlow(y, x, 2), 'Color', 'y', 'MaxHeadSize', 1);
-        end
-    end
-    result = saveAnnotatedImg(fig);
+%     fig = figure;
+%     imshow(img1);
+%     hold on;
+%     for y = round(ht / (grid_MN(1) + 1)) + 1 : round(ht / (grid_MN(1) + 1)) : ht
+%         for x = round(wid / (grid_MN(2) + 1)) + 1 : round(wid / (grid_MN(2) + 1)) : wid - round(wid / (grid_MN(2) + 1))
+%             if mask(y, x) == 1
+%                 quiver(x, y, opticalFlow(y, x, 1), opticalFlow(y, x, 2), 'Color', 'y', 'MaxHeadSize', 1);
+%             end
+%         end
+%     end
+    
+%     quiver(wid/2, ht/2, average_flow(1), average_flow(2), 'Color', 'r', 'MaxHeadSize', 1);
+    
+%     result = saveAnnotatedImg(fig);
+    %imwrite(result, 'result.jpg');
     % close(fig);
 end
