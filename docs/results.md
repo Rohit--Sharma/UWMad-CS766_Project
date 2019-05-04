@@ -1,12 +1,18 @@
 # Evaluation:
 To evaluate the predictions of lane markings against the ground truth, the lane markings are viewed as lines with 30 pixel width. Then, the **Jaccard Similarity** score or the **Intersection-over-union (IoU)** is computed between the ground truth and the predictions. To see which predictions are true positives (TP), a threshold of 0.5 is used on the Jaccard similarity value. Precision and Recall are calculated using TP, FP and FN as follows:
 
+```
 Precision = TP / (TP + FP), Recall = TP / (TP + FN)
+```
+$$
+Precision = \frac{TP}{TP+FP} \\
+Recall = \frac{TP}{TP+FN}
+$$
 
 With Precision and Recall, F1-measure is computed to report the final performance of the lane detection model as follows:
-
+```
 F1 = 2 Precision Recall / (Precision + Recall)
-
+```
 # Results on Glaze Subset:
 After the preprocessing step of de-glazing is applied on all the images with glaze, the deglazed images were then used to train the SCNN model and the results were evaluated as described above. The following tables show the results of trained model just on the subset of images with glaze. The leftmost table shows the performance of just SCNN model. The next table shows the performance of SCNN model with deglaze preprocessing. The final table shows the performance of SCNN model with deglaze interpolation done by incorporating optical flow information.
 
