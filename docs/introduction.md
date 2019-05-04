@@ -89,6 +89,14 @@ The current state of the art and our baseline model for lane detection was SCNN 
 
 This is where SCNN steps in. Objects like lanes, poles and street markings have a common shape accross their instances. They have a strong shape bias that can be learned by a CNN model. SCNNs can learn spatial relationships like strong shape priors of lane markings. It generalizes the deep layer-by-layer convolutions to slice-by-slice convolutions and hence enables message passing between pixels across rows and columns in a layer. 
 
+Traditional methods to model spatial relationship are based on Markov Random Fields. For MRF, the large convolution kernel is hard to learn and initialize. Additionally, MRF  applied to the
+output of CNN, while the top hidden layer, which comprises richer information, might be a better place to model spatial relationship. To address these issues, Pan et al. have presented the Spatial CNN. The the below figure, part (a) shows a MRF based CNN and figure (b) shows the Spatial CNN propsed by Pan et al.
+<p float="left">
+    SCNN vs MRF 
+    <img title="Title Tag Goes Here" src="images/scnn-diag.png" width="500" />
+</p>
+
+
 Below we show the results of applying VGG-16 training model on various driving video frames. We can see that SCNN with VGG-16, together is able to caputre the minute nuances while detecting lanes and is able to detect lanes very well. The results obtained on VGG-16 with SCNN is much closer to the ground truth than just by VGG-16.
 <p float="left">
     SCNN
