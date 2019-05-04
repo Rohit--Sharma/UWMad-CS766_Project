@@ -6,3 +6,5 @@ search_enabled: true
 aux_links:
   "View GitHub Repository":
     - "https://github.com/Rohit--Sharma/UWMad-CS766_Project"
+
+theme: jekyll-theme-cayman
