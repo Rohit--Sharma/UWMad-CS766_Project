@@ -1,10 +1,10 @@
-# What? Why? How?
+# Introduction
 
-## What?
+## What are we doing?
 ### Lane Detection: 
 In the project, we have tried to tackle the problem of lane detection in adverse conditions.
 
-## Why?
+## Motication
 What made us do this? What is the motivation behind tackling the problem of lane detection effectively?
 Two major reasons are - 
 1. Better automation and enhanced driving experience​
