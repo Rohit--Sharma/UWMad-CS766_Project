@@ -4,6 +4,7 @@ To evaluate the predictions of lane markings against the ground truth, the lane 
 ```
 Precision = TP / (TP + FP), Recall = TP / (TP + FN)
 ```
+
 $$
 Precision = \frac{TP}{TP+FP} \\
 Recall = \frac{TP}{TP+FN}
