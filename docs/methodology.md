@@ -36,3 +36,16 @@ These probabilities map are then used to generate lane segment predictions. Thes
 The predicted lanes are compared with the labelled markings on a per-pixel basis, using the evaluation metric described below.    
   
 
+## Optical flow
+
+After evaluating our results on deglazed images, we observed some drawbacks in heuristic per-pixel replacement approach. Firstly, it adds noise in the image, which is difficult to remove even with smoothing. 
+This also makes it difficult to fit the spline curve which may further affect our results, even if our predictions may be correct.
+Second, it also may also lead to shift in predicted lane markings due to inherent motion present between neighbouring images. 
+To overcome these, we tried the approach of using optical flow to incorporate the motion of car also while interpolating the pixels.
+We tried three different approaches for find the optical flow between the images as described below.
+
+### Horn-schmuck 
+
+### Lucas Kanade
+
+### Template based
