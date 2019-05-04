@@ -36,7 +36,7 @@ After the preprocessing step of de-glazing is applied on all the images with gla
 | Recall | 0.5636 |
 | F1-Measure | 0.5708 |
 
-</td><tr>
+</td></tr>
 </table>
 
 As it can be clearly seen that the F1 score has improved from left to right. An improvement of `0.82%` in F1 measure was achieved over the state of the art model with just Deglaze preprocessing and an improvement of `1.3%` with incorporating optical flow information while interpolating.
