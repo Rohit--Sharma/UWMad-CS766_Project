@@ -27,7 +27,7 @@ Some of the examples are :
 | :---: | :---: |
 | Glaze|Curved Lanes
 
- ![No Lanes](images/nolane.png "No Lanes") | ![Night](images/night.png "Night") | 
+![No Lanes](images/nolane.png "No Lanes") | ![Night](images/night.png "Night") | 
 | :---: | :---: |
 |No Lanes|Night
 
@@ -104,7 +104,7 @@ In the below, we show the distribution of the CULane dataset accross various sce
    height:100px;
 }</style>
 
-|![CULane Distribution Chart](images/test.png){: width=50%}
+|![CULane Distribution Chart](images/test.png){: width=50% height=50%}
 | :---: |
 | CULane Distribution Chart  
 
@@ -114,11 +114,14 @@ In the below, we show the distribution of the CULane dataset accross various sce
 The figure below shows the labled markings for a small subset of the frames in CULane.
 
 
+<p align="center">
+
+
 |![CULane markings ](images/markings_culane.png "CULane markings ")
 | :---: |
 | CULane markings  
 
-
+</p>
 
 
 ### Spatial CNN Results:
