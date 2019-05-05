@@ -27,7 +27,7 @@ Some of the examples are :
 | :---: | :---: |
 | Glaze|Curved Lanes
 
-![No Lanes](images/nolane.png "No Lanes") | ![Night](images/night.png "Night") | 
+![No Lanes](images/nolane.png "No Lanes") | ![Night](images/night.png "Night") 
 | :---: | :---: |
 |No Lanes|Night
 
