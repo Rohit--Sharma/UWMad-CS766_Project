@@ -23,9 +23,9 @@ Some of the examples are :
 } 
 </style>
 
-|![Glaze](images/glaze.png "Glaze")|![Curved Lanes](images/curvedlanes.png "Curved Lanes")
+| ![Glaze](images/glaze.png "Glaze") | ![Curved Lanes](images/curvedlanes.png "Curved Lanes") |
 | :---: | :---: |
-| Glaze|Curved Lanes|
+| Glaze | Curved Lanes |
 
 <style>
 .image-caption {
@@ -35,9 +35,9 @@ Some of the examples are :
 } 
 </style>
 
-![No Lanes](images/nolane.png "No Lanes") | ![Night](images/night.png "Night") 
+| ![No Lanes](images/nolane.png "No Lanes") | ![Night](images/night.png "Night") |
 | :---: | :---: |
-|No Lanes|Night|
+| No Lanes | Night |
 
 
 
@@ -107,17 +107,20 @@ In the below, we show the distribution of the CULane dataset accross various sce
 
 <!-- img src="images/test.png"  width="40%" height="40%"> -->
 
-<style>img[src*="#thumbnail"] {
-   width:150px;
-   height:100px;
-}</style>
+<style>
+.image-caption {
+  text-align: center;
+  font-size: .8rem;
+  color: light-grey;
+}
+</style>
 
-|![CULane Distribution Chart](images/test.png){: width=50% height=50%}
-| :---: |
-| CULane Distribution Chart |
+<p align="center">
+	<img src="images/test.png" width="300" />
+</p>
 
-
-
+{:.image-caption}
+*CULane Dataset - Various Categories*
 
 The figure below shows the labled markings for a small subset of the frames in CULane.
 
@@ -139,9 +142,9 @@ The figure below shows the labled markings for a small subset of the frames in C
 In the table below, we can see the F1-measures of lane detection for various conditions. We can see that the model does a really good job on lane detection for various normal conditions. But, if we look at the markings in red text, we can see that the SCNN model does not live up to the expections of performing effective lane detection in adverse conditions. We decided to tackle this problem and improve lane detection for one of the adverse conditions, ie. glaze. 
 
 
+<p align="center">
+	<img src="images/scnn_table.png" width="300" />
+</p>
 
-|![SCNN Results ](images/scnn_table.png "SCNN Results") 
-| :---: |
-| SCNN Results |
-
-
+{:.image-caption}
+*SCNN Results*
