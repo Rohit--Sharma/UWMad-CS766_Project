@@ -51,5 +51,10 @@ The below video shows lane predictions by the model on real data:
 
 ![Video_normal](images/result_normal.gif?raw=true "Video_normal")
 
+<p float="left">
+	<img src="images/glaze_high.gif" width="400" />
+	<img src="images/glaze_low.gif" width="400" />
+</p>
+
 
 {% include lib/mathjax.html %}
