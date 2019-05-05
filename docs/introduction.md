@@ -4,7 +4,7 @@
 ### Lane Detection: 
 In the project, we have tried to tackle the problem of lane detection in adverse conditions.
 
-## Motication
+## Motivation
 What made us do this? What is the motivation behind tackling the problem of lane detection effectively?
 Two major reasons are - 
 1. Better automation and enhanced driving experience​
@@ -63,26 +63,15 @@ Some of the examples are :
 } 
 </style>
 
-|![Glaze](images/glaze.png "Glaze")|![Curved Lanes](images/curvedlanes.png "Curved Lanes")| ![No Lanes](images/nolane.png "No Lanes") | ![Night](images/night.png "Night") | 
-| :---: | :---: | :---: | :---: |
-| Glaze|Curved Lanes| No Lanes|Night
+|![Glaze](images/glaze.png "Glaze")|![Curved Lanes](images/curvedlanes.png "Curved Lanes")
+| :---: | :---: |
+| Glaze|Curved Lanes
+
+ ![No Lanes](images/nolane.png "No Lanes") | ![Night](images/night.png "Night") | 
+| :---: | :---: |
+|No Lanes|Night
 
 
-
-  <!-- | ![No Lanes](images/nolane.png "No Lanes") | ![Night](images/night.png "Night") | -->
-
-
-<!-- <p float="left">
-    Glaze
-	<img title="Title Tag Goes Here" src="images/glaze.png" width="200" />
-    Curved Lanes
-	<img title="Title Tag Goes Here" src="images/curvedlanes.png" width="200" />
-    No Lanes
-    <img title="Title Tag Goes Here" src="images/nolane.png" width="200" />
-    Night
-    <img title="Title Tag Goes Here" src="images/night.png" width="200" />
-
-</p> -->
 
 ## What happens to lane detection in adverse conditions?
 In the pictures below, we can see that how state of the art models fail miserably at a common adverse condition. We can see that in the first picture, the lane markings are almost flawless, but as soon as we look at a curved lane, which is one of the adverse conditions, we see that none of the lanes where detected. This can lead to serious miscalculations and even accidents when it comes to lane detecction for self driving cars.
@@ -100,12 +89,15 @@ In the pictures below, we can see that how state of the art models fail miserabl
 
 
 Apart from the adverse condition showcased above, there are other scenarioes as well shown below :
-<p float="left">
-    Before
-	<img title="Title Tag Goes Here" src="images/b.png" width="200" />
-    After
-	<img title="Title Tag Goes Here" src="images/a.png" width="200" />
-</p>
+
+
+
+|![Before](images/b.png "Before")|![After](images/a.png "After")|  
+| :---: | :---: | 
+| Before |After
+
+
+
 
 
 Hence we can conclude that there is a sharp dip in accuracy in lane detection in adverse conditions. To validate this hypothesis, we have shown the accuracy results of various conditions in the next section.
@@ -116,17 +108,31 @@ This is where SCNN steps in. Objects like lanes, poles and street markings have 
 
 Traditional methods to model spatial relationship are based on Markov Random Fields. For MRF, the large convolution kernel is hard to learn and initialize. Additionally, MRF  applied to the
 output of CNN, while the top hidden layer, which comprises richer information, might be a better place to model spatial relationship. To address these issues, Pan et al. have presented the Spatial CNN. The the below figure, part (a) shows a MRF based CNN and figure (b) shows the Spatial CNN propsed by Pan et al.
-<p float="left">
-    SCNN vs MRF 
-    <img title="Title Tag Goes Here" src="images/scnn-diag.png" width="500" />
-</p>
+
+
+
+|![SCNN vs MRF](images/scnn-diag.png "SCNN vs MRF") 
+| :---: |
+| SCNN vs MRF 
+
+
+
+
 
 
 Below we show the results of applying VGG-16 training model on various driving video frames. We can see that SCNN with VGG-16, together is able to caputre the minute nuances while detecting lanes and is able to detect lanes very well. The results obtained on VGG-16 with SCNN is much closer to the ground truth than just by VGG-16.
-<p float="left">
-    SCNN
-	<img title="Title Tag Goes Here" src="images/scnn_result.png" width="500" />
-</p>
+
+
+
+|![SCNN ](images/scnn_result.png "SCNN ") 
+| :---: |
+| SCNN  
+
+
+
+
+
+
 
 
 ### CULane Dataset:
@@ -142,22 +148,33 @@ The achieve the above results, the training was performed on the CULane Dataset.
 
 In the below, we show the distribution of the CULane dataset accross various scenarios like normal, night, curved lane, glaze, etc.  
 
-<p float="left">
-    CULane Chart
-	<img title="Title Tag Goes Here" src="images/test.png" width="500" />
-</p>
+
+
+|![CULane Chart ](images/test.png "CULane Chart ") 
+| :---: |
+| CULane Chart  
+
+
+
+
 
 The figure below shows the labled markings for a small subset of the frames in CULane.
-<p float="left">
-    CULane markings
-	<img title="Title Tag Goes Here" src="images/markings_culane.png" width="500" />
-</p>
+
+|![CULane markings ](images/markings_culane.png "CULane markings ") 
+| :---: |
+| CULane markings  
+
+
+
 
 ### Spatial CNN Results:
 
 In the table below, we can see the F1-measures of lane detection for various conditions. We can see that the model does a really good job on lane detection for various normal conditions. But, if we look at the markings in red text, we can see that the SCNN model does not live up to the expections of performing effective lane detection in adverse conditions. We decided to tackle this problem and improve lane detection for one of the adverse conditions, ie. glaze. 
 
-<p float="left">
-    CULane markings
-	<img title="Title Tag Goes Here" src="images/scnn_table.png" width="500" />
-</p>
+
+
+|![SCNN Results ](images/scnn_table.png "SCNN Results") 
+| :---: |
+| SCNN Results  
+
+
