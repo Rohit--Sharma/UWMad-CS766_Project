@@ -81,20 +81,9 @@ In the pictures below, we can see that how state of the art models fail miserabl
 
 |![Before](images/before.png "Before")|![After](images/after.png "After")|  
 | :---: | :---: | 
-| Before |After
+| Normal Condition |Adverse Condition
 
 
-
-
-
-
-Apart from the adverse condition showcased above, there are other scenarioes as well shown below :
-
-
-
-|![Before](images/b.png "Before")|![After](images/a.png "After")|  
-| :---: | :---: | 
-| Before |After
 
 
 
