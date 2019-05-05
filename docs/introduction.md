@@ -15,46 +15,6 @@ Lane detection problem has been tacckled through various research efforts, but R
 An adverse condition is the one which occurs less likely than the normal scenarios. It is a condition that makes the task of lane detection even more challenging for the existing models. 
 
 Some of the examples are :
-<!-- <style>
-.container {
-  position: relative;
-  text-align: center;
-  color: white;
-}
-
-.bottom-left {
-  position: absolute;
-  bottom: 8px;
-  left: 16px;
-}
-
-.top-left {
-  position: absolute;
-  top: 8px;
-  left: 16px;
-}
-
-.top-right {
-  position: absolute;
-  top: 8px;
-  right: 16px;
-}
-
-.bottom-right {
-  position: absolute;
-  bottom: 8px;
-  right: 16px;
-}
-
-.centered {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-</style>
-
--->
 <style>
 .image-caption {
   text-align: center;
