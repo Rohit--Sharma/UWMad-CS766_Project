@@ -17,6 +17,9 @@ The model was trained on GPU machines provided by [Wisconsin Applied Computing C
 The model for training takes as input the image files as well as their lane markings. The training requires per pixel labels, which are generated using a seperate 
 method provided at [Seg_label_generate](https://github.com/XingangPan/seg_label_generate). 
 
+
+<div><img src="images/process_flow_lane_detection.png"/>Complete process flow</div>
+
 ### Segment label generation
 This method tries to fit a spline curve by extrapolating the already present manual markings, and write out the per pixel labels. It also identifies the coordinates of the lanes 
 using the provided manual points. The authors of SCNN use the same method for their training and evaluation. 
