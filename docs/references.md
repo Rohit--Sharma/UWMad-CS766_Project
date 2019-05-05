@@ -1,0 +1,40 @@
+[Bossu et al., 2011]  Bossu,  J.,  Hauti`ere,  N.,  and  Tarel,J.-P.  (2011).    Rain  or  snow  detection  in  image  se-quences  through  use  of  a  histogram  of  orientationof streaks.International journal of computer vision,93(3):348–367.
+
+[Chi et al., 2018]  Chi,  Z.,  Wu,  X.,  Shu,  X.,  and  Gu,J.  (2018).Single  image  reflection  removal  us-ing  deep  encoder-decoder  network.arXiv  preprintarXiv:1802.00094.
+
+[Diamond et al., 2017]  Diamond,    S.,    Sitzmann,    V.,Boyd, S., Wetzstein, G., and Heide, F. (2017).  Dirtypixels:  Optimizing image classification architecturesfor raw sensor data.arXiv preprint arXiv:1701.06487.
+
+[Fu et al., 2017]  Fu, X., Huang, J., Zeng, D., Huang, Y.,Ding, X., and Paisley, J. (2017).  Removing rain fromsingle images via a deep detail network. InIEEE Con-ference on Computer Vision and Pattern Recognition,pages 1715–1723.
+
+[Hancock and Escanilla, 2018]  Hancock,   D.   and   Es-canilla, N. (2018).  Lane tracking in adverse visibilityconditions.https://dereklh4.github.io/lane_tracking_webpage/.
+
+[He et al., 2011]  He,  K.,  Sun,  J.,  and Tang,  X. (2011).Single image haze removal using dark channel prior.IEEE  transactions  on  pattern  analysis  and  machineintelligence, 33(12):2341–2353.
+
+[Kumar and Simon, 2015]  Kumar, A. M. and Simon, P.(2015).  Review of lane detection and tracking algo-rithms in advanced driver assistance system.Int. J.Comput. Sci. Inf. Technol, 7(4):65–78.
+
+[Lee and Moon, 2018]  Lee, C. and Moon, J. (2018). Ro-bust lane detection and tracking for real-time applica-tions.IEEE Transactions on Intelligent Transporta-tion Systems, 19(12):4043–4048.4
+
+
+[Leng and Chen, 2010]  Leng,  Y.  and  Chen,  C.  (2010).Vision-based lane departure detection system in urbantraffic scenes.  In2010 11th International Conferenceon Control Automation Robotics Vision, pages 1875–1880.
+
+[Li et al., 2017]  Li,    R.,    Cheong,    L.   F.,    and   Tan,R.   T.   (2017).Single   image   deraining   usingscale-aware  multi-stage  recurrent  network.CoRR,abs/1712.06830.
+
+[Nexar, 2017]  Nexar   (2017).Nexar   challenge   ii-   vehicle   detection   in   the   wild   using   the   nexetdataset.https://www.getnexar.com/challenge-2/.
+
+[Pan et al., 2018]  Pan, X., Shi, J., Luo, P., Wang, X., andTang, X. (2018). Spatial as deep: Spatial cnn for traf-fic scene understanding. InThirty-Second AAAI Con-ference on Artificial Intelligence.
+
+[Parajuli et al., 2013]  Parajuli,  A.,  Celenk,  M.,  and Ri-ley, H. B. (2013).  Robust lane detection in shadowsand low illumination conditions using local gradientfeatures.Open Journal of Applied Sciences, 3(01):68.
+
+[Shen et al., 2018]  Shen,  L.,  Yue,  Z.,  Chen,  Q.,  Feng,F.,   and   Ma,   J.   (2018).Deep   joint   rain   andhaze  removal  from  single  images.arXiv  preprintarXiv:1801.06769.
+
+[Shibata et al., 2014]  Shibata,  K.,  Takeuch,  K.,  Kawai,S., and Horita, Y. (2014).  Detection of road surfaceconditions in winter using road surveillance camerasat  daytime,  night-time  and  twilight.InternationalJournal  of  Computer  Science  and  Network  Security(IJCSNS), 14(11):21.
+
+[Simonyan and Zisserman, 2014]  Simonyan,K.    andZisserman,   A.  (2014).Very  deep  convolutionalnetworks  for  large-scale  image  recognition.arXivpreprint arXiv:1409.1556.
+
+[Wan et al., 2017]  Wan,  R.,  Shi,  B.,  Duan,  L.-Y.,  Tan,A.-H., and Kot, A. C. (2017).  Benchmarking single-image reflection removal algorithms.  InProceedingsof  the  IEEE  International  Conference  on  ComputerVision, pages 3922–3930.
+
+[Wang et al., 2017]  Wang,  Y.,  Liu,  S.,  Chen,  C.,  andZeng, B. (2017).  A hierarchical approach for rain orsnow removing in a single color image.IEEE Trans-actions on Image Processing, 26(8):3936–3950.
+
+[Wang et al., 2018]  Wang,  Z.,  Ren,  W.,  and  Qiu,  Q.(2018).  Lanenet:  Real-time lane detection networksfor autonomous driving.CoRR, abs/1807.01726.
+
+[Yang et al., 2010]  Yang,  Q.,  Wang,  S.,  and Ahuja,  N.(2010).   Real-time specular highlight removal usingbilateral filtering.   InEuropean conference on Com-puter vision, pages 87–100. Springer.5
