@@ -58,10 +58,11 @@ The below video shows lane predictions by the model on real data:
 </style>
 
 ![Video_normal](images/result_normal.gif?raw=true "Video_normal")
+
 {:.image-caption}
 *Lane Predictions*
 
-|![Video_normal](images/glaze_high.gif?raw=true "Video_normal")|![Video_normal](images/glaze_low.gif?raw=true "Video_normal")|
+|![Video_deglaze](images/glaze_high.gif?raw=true "Video_glaze")|![Video_deglaze](images/glaze_low.gif?raw=true "Video_deglaze")|
 | :---: | :---: |
 |Before DeGlaze|After DeGlaze|
 
