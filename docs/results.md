@@ -49,12 +49,21 @@ Initially, with just deglaze, we were able to increase the F1 score slightly, bu
 
 The below video shows lane predictions by the model on real data:
 
-![Video_normal](images/result_normal.gif?raw=true "Video_normal")
+<style>
+.image-caption {
+  text-align: center;
+  font-size: .8rem;
+  color: light-grey;
+}
+</style>
 
-<p float="left">
-	<img src="images/glaze_high.gif" width="400" />
-	<img src="images/glaze_low.gif" width="400" />
-</p>
+![Video_normal](images/result_normal.gif?raw=true "Video_normal")
+{:.image-caption}
+*Lane Predictions*
+
+|![Video_normal](images/glaze_high.gif?raw=true "Video_normal")|![Video_normal](images/glaze_low.gif?raw=true "Video_normal")|
+| :---: | :---: |
+|Before DeGlaze|After DeGlaze|
 
 
 {% include lib/mathjax.html %}
