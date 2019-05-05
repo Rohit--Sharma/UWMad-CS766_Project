@@ -22,6 +22,6 @@ nav_order: 1
 
 ## [Results](results.md)
 
-## Conclusion:
+## [Conclusion](results.md)
 
-### References:
+## [References](references.md)
