@@ -15,7 +15,7 @@ Lane detection problem has been tacckled through various research efforts, but R
 An adverse condition is the one which occurs less likely than the normal scenarios. It is a condition that makes the task of lane detection even more challenging for the existing models. 
 
 Some of the examples are :
-<style>
+<!-- <style>
 .container {
   position: relative;
   text-align: center;
@@ -53,7 +53,26 @@ Some of the examples are :
   transform: translate(-50%, -50%);
 }
 </style>
-<p float="left">
+
+-->
+<style>
+.image-caption {
+  text-align: center;
+  font-size: .8rem;
+  color: light-grey;
+} 
+</style>
+
+|![Glaze](images/glaze.png "Glaze")|![Curved Lanes](images/curvedlanes.png "Curved Lanes")| ![No Lanes](images/nolane.png "No Lanes") | ![Night](images/night.png "Night") | 
+| :---: | :---: | :---: | :---: |
+| Glaze|Curved Lanes| No Lanes|Night
+
+
+
+  <!-- | ![No Lanes](images/nolane.png "No Lanes") | ![Night](images/night.png "Night") | -->
+
+
+<!-- <p float="left">
     Glaze
 	<img title="Title Tag Goes Here" src="images/glaze.png" width="200" />
     Curved Lanes
@@ -63,16 +82,22 @@ Some of the examples are :
     Night
     <img title="Title Tag Goes Here" src="images/night.png" width="200" />
 
-</p>
+</p> -->
 
 ## What happens to lane detection in adverse conditions?
 In the pictures below, we can see that how state of the art models fail miserably at a common adverse condition. We can see that in the first picture, the lane markings are almost flawless, but as soon as we look at a curved lane, which is one of the adverse conditions, we see that none of the lanes where detected. This can lead to serious miscalculations and even accidents when it comes to lane detecction for self driving cars.
-<p float="left">
-    Before
-	<img title="Title Tag Goes Here" src="images/before.png" width="200" />
-    After
-	<img title="Title Tag Goes Here" src="images/after.png" width="200" />
-</p>
+
+
+
+
+|![Before](images/before.png "Before")|![After](images/after.png "After")|  
+| :---: | :---: | 
+| Before |After
+
+
+
+
+
 
 Apart from the adverse condition showcased above, there are other scenarioes as well shown below :
 <p float="left">
@@ -110,10 +135,10 @@ The achieve the above results, the training was performed on the CULane Dataset.
 
 #### Some of the major properties of CULane are :
 
-##### 55 hours of videos with 133,235 frames
-##### 88880 frames for training set
-##### 9675 frames for validation set
-##### 34680 frames for test set
+1. 55 hours of videos with 133,235 frames
+2. 88880 frames for training set
+3. 9675 frames for validation set
+4. 34680 frames for test set
 
 In the below, we show the distribution of the CULane dataset accross various scenarios like normal, night, curved lane, glaze, etc.  
 
