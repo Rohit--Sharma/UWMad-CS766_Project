@@ -25,11 +25,11 @@ Some of the examples are :
 
 |![Glaze](images/glaze.png "Glaze")|![Curved Lanes](images/curvedlanes.png "Curved Lanes")
 | :---: | :---: |
-| Glaze|Curved Lanes
+| Glaze|Curved Lanes|
 
 ![No Lanes](images/nolane.png "No Lanes") | ![Night](images/night.png "Night") 
 | :---: | :---: |
-|No Lanes|Night
+|No Lanes|Night|
 
 
 
@@ -41,7 +41,7 @@ In the pictures below, we can see that how state of the art models fail miserabl
 
 |![Before](images/before.png "Before")|![After](images/after.png "After")|  
 | :---: | :---: | 
-| Normal Condition |Adverse Condition
+| Normal Condition |Adverse Condition|
 
 
 
@@ -75,7 +75,7 @@ Below we show the results of applying VGG-16 training model on various driving v
 
 |![SCNN ](images/scnn_result.png "SCNN ") 
 | :---: |
-| SCNN  
+| SCNN |
 
 
 
@@ -106,7 +106,7 @@ In the below, we show the distribution of the CULane dataset accross various sce
 
 |![CULane Distribution Chart](images/test.png){: width=50% height=50%}
 | :---: |
-| CULane Distribution Chart  
+| CULane Distribution Chart |
 
 
 
@@ -119,7 +119,7 @@ The figure below shows the labled markings for a small subset of the frames in C
 
 |![CULane markings ](images/markings_culane.png "CULane markings ")
 | :---: |
-| CULane markings  
+| CULane markings | 
 
 </p>
 
@@ -132,6 +132,6 @@ In the table below, we can see the F1-measures of lane detection for various con
 
 |![SCNN Results ](images/scnn_table.png "SCNN Results") 
 | :---: |
-| SCNN Results  
+| SCNN Results |
 
 
