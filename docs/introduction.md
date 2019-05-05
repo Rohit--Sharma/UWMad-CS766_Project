@@ -27,6 +27,14 @@ Some of the examples are :
 | :---: | :---: |
 | Glaze|Curved Lanes|
 
+<style>
+.image-caption {
+  text-align: center;
+  font-size: .8rem;
+  color: light-grey;
+} 
+</style>
+
 ![No Lanes](images/nolane.png "No Lanes") | ![Night](images/night.png "Night") 
 | :---: | :---: |
 |No Lanes|Night|
