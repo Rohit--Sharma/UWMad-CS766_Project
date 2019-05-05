@@ -97,19 +97,24 @@ The achieve the above results, the training was performed on the CULane Dataset.
 
 In the below, we show the distribution of the CULane dataset accross various scenarios like normal, night, curved lane, glaze, etc.  
 
+<!-- img src="images/test.png"  width="40%" height="40%"> -->
 
+<style>img[src*="#thumbnail"] {
+   width:150px;
+   height:100px;
+}</style>
 
-|![CULane Chart ](images/test.png "CULane Chart ") 
+|![CULane Distribution Chart](images/test.png){: width=50%}
 | :---: |
-| CULane Chart  
-
+| CULane Distribution Chart  
 
 
 
 
 The figure below shows the labled markings for a small subset of the frames in CULane.
 
-|![CULane markings ](images/markings_culane.png "CULane markings ") 
+
+|![CULane markings ](images/markings_culane.png "CULane markings ")
 | :---: |
 | CULane markings  
 
