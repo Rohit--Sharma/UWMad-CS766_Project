@@ -44,17 +44,9 @@ Some of the examples are :
 ## What happens to lane detection in adverse conditions?
 In the pictures below, we can see that how state of the art models fail miserably at a common adverse condition. We can see that in the first picture, the lane markings are almost flawless, but as soon as we look at a curved lane, which is one of the adverse conditions, we see that none of the lanes where detected. This can lead to serious miscalculations and even accidents when it comes to lane detecction for self driving cars.
 
-
-
-
 |![Before](images/before.png "Before")|![After](images/after.png "After")|  
 | :---: | :---: | 
 | Normal Condition |Adverse Condition|
-
-
-
-
-
 
 
 Hence we can conclude that there is a sharp dip in accuracy in lane detection in adverse conditions. To validate this hypothesis, we have shown the accuracy results of various conditions in the next section.
@@ -66,22 +58,16 @@ This is where SCNN steps in. Objects like lanes, poles and street markings have 
 Traditional methods to model spatial relationship are based on Markov Random Fields. For MRF, the large convolution kernel is hard to learn and initialize. Additionally, MRF  applied to the
 output of CNN, while the top hidden layer, which comprises richer information, might be a better place to model spatial relationship. To address these issues, Pan et al. have presented the Spatial CNN. The the below figure, part (a) shows a MRF based CNN and figure (b) shows the Spatial CNN propsed by Pan et al.
 
-
-
-|![SCNN vs MRF](images/scnn-diag.png "SCNN vs MRF") 
+|![SCNN vs MRF](images/scnn-diag.png "SCNN vs MRF") |
 | :---: |
-| SCNN vs MRF 
-
-
-
-
+| SCNN vs MRF |
 
 
 Below we show the results of applying VGG-16 training model on various driving video frames. We can see that SCNN with VGG-16, together is able to caputre the minute nuances while detecting lanes and is able to detect lanes very well. The results obtained on VGG-16 with SCNN is much closer to the ground truth than just by VGG-16.
 
 
 
-|![SCNN ](images/scnn_result.png "SCNN ") 
+|![SCNN ](images/scnn_result.png "SCNN ") |
 | :---: |
 | SCNN |
 
@@ -116,7 +102,7 @@ In the below, we show the distribution of the CULane dataset accross various sce
 </style>
 
 <p align="center">
-	<img src="images/test.png" width="300" />
+	<img src="images/test.png" width="50%" />
 </p>
 
 {:.image-caption}
@@ -143,7 +129,7 @@ In the table below, we can see the F1-measures of lane detection for various con
 
 
 <p align="center">
-	<img src="images/scnn_table.png" width="300" />
+	<img src="images/scnn_table.png" width="60%" />
 </p>
 
 {:.image-caption}
