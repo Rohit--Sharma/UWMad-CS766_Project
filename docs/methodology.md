@@ -47,8 +47,35 @@ Second, it also may also lead to shift in predicted lane markings due to inheren
 To overcome these, we tried the approach of using optical flow to incorporate the motion of car also while interpolating the pixels.
 We tried three different approaches for find the optical flow between the images as described below.
 
-### Horn-schmuck 
+### Methods:
+#### 1. Horn-Schunck Method:
+Horn Schunck method assumes that the optical flow is smooth over the entire image and computes an estimate of the velocity field that minimizes the equation:
 
-### Lucas Kanade
+$$
+E = \int \int (I_xu + I_yv + I_t)^2dxdy + \alpha \int \int ((\frac{\partial u}{\partial x})^2 + (\frac{\partial u}{\partial y})^2 + (\frac{\partial v}{\partial x})^2 + (\frac{\partial v}{\partial y})^2)dxdy
+$$
 
-### Template based
+#### 2. Lucas-Kanade Method:
+Lucas-Kanade method assumes that the flow is essentially constant in a local neighborhood window $W$ of the pixel under consideration and solves the basic optical flow equations for all the pixels in the neighborhood by least squares criterion. That is, for all points $(k, l) \in W$,
+$$
+I_x(k, l)u + I_y(k, l)v + I_t(k, l) = 0
+$$
+
+We used pre defined `estimateFlow()` method in MATLAB with `opticalFlowHS` for Horn-Shunck method and `opticalFlowLK` for Lucas-Kanade method for the `opticFlow` parameter. 
+
+#### 3. Template-Matching Method:
+In this method, for each template window $T$ in image $I_1$, first find the corresponding match in image $I_2$. Then the vector from the initial position to the final position of the corresponding points gives an estimate of optical flow at each point. We used Sum of Squared differences to compare the windows in image $I_1$ with the windows in image $I_2$.
+
+We used the implementation from hw 7 for this.
+
+### Approach to interpolate glaze pixels with optical flow:
+After trying the three methods described above, we found that the template-matching based approach worked best for the approach. Now, the goal is to incorporate the motion of the vehicle while interpolating the pixels with historical images in the glaze region. Optical flow can give us an estimate of how much the vehicle has moved compared to the previous frame and thus instead of interpolating the pixels based on just the corresponding coordinates in the image, we can add the optical flow vector to each pixel in the glaze region to get an estimate of the new position of the historical pixel point in the image. 
+
+For this, we need to determine the optical flow direction and magnitude. But the challenge is that we cannot directly estimate the optical flow of the glaze region as these images are saturated which results in noisy optical flow. Therefore, we employ certain heuristics to do the same. Firstly, it is important to observe that due to the movement of the vehicle in forward direction, the dominant optical flow direction of the image in outward direction from the center of the image. We have also discarded the directions that do not agree with this dominant direction as those optical flow vectors can be considered noise. That is in the top left part of the image, the optical flow is in the left top direction, and in the bottom right part of the image, the optical flow is in the right bottom direction. Therefore, we take the opposite region of glaze in the image and estimate the optical flow direction to be the opposite of the average of the opposite region. The below images illustrate this:
+
+![Optical Flow Illustration](images/optical_flow.jpg?raw=true "Optical Flow Illustration")
+
+As it can be seen from the figure, since the glaze region is in the right bottom, the optical flow was computed for the left top region. Only the vectors in the left top direction are kept and the others are discarded. These can be seen as a needle plot in yellow color. We then take the average of all these vectors and the opposite direction of this vector is assumed to be the optical flow of the glaze region. This is depicted by a small red colored vector in the center of the image. The same is repeated for getting the optical flow direction of the glaze region. Once we get this information, we incorporate the same to interpolate the glaze region pixels.
+
+
+{% include lib/mathjax.html %}
