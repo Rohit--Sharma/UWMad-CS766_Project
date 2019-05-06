@@ -15,13 +15,24 @@ nav_order: 1
 - [Vibhor Goel](mailto:vgoel5@wisc.edu)
 
 ---
+# Abstract
 
-## [Introduction](introduction.md)
 
-## [Methodology](methodology.md)
+* [Introduction](introduction.md)
+* [Methodology](methodology.md)
+* [Results](results.md)
 
-## [Results](results.md)
+## Other Material:
+- [Project Proposal]()
+- [Midterm Report]()
+- [End term Presentation]()
+- [Source Code]()
 
-## [Conclusion](results.md)
+## Conclusion:
+### Discussion:
+#### Challenges:
+#### Learnings:
+
+### Future Work:
 
 ## [References](references.md)
