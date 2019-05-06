@@ -1,8 +1,4 @@
-title: Computer Vision
-search_enabled: true
-
-aux_links:
-  "View GitHub Repository":
-    - "https://github.com/Rohit--Sharma/UWMad-CS766_Project"
-
 theme: jekyll-theme-cayman
+title: Lane Detection in Adverse Visibility Conditions
+
+description: CS 766 - Computer Vision - Spring 2019

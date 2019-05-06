@@ -4,11 +4,6 @@ title: Home
 nav_order: 1
 ---
 
-# CS766 - Computer Vision (Spring 2019)
-{: .fs-5 .fw-300 }
-
----
-
 ## Team Members
 - [Rohit Kumar Sharma](mailto:rsharma@cs.wisc.edu)
 - [Varun Batra](mailto:vbatra@wisc.edu)
@@ -23,10 +18,10 @@ nav_order: 1
 * [Results](results.md)
 
 ## Other Material:
-- [Project Proposal]()
-- [Midterm Report]()
-- [End term Presentation]()
-- [Source Code]()
+- [Project Proposal](project_proposal.html)
+- [Midterm Report](midterm_report.html)
+- [End term Presentation](res/FinalPresentation.pptx)
+- [Source Code](https://github.com/Rohit--Sharma/UWMad-CS766_Project/)
 
 ## Conclusion:
 ### Discussion:
