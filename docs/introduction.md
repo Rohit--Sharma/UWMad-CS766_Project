@@ -105,7 +105,9 @@ The figure below shows the labled markings for a small subset of the frames in C
 <p align="center">
 	<img src="images/markings_culane.png" width="90%" />
 </p>
-{:.image-caption}CULane markings
+
+{:.image-caption}
+*CULane markings*
 
 ### Spatial CNN Results:
 
