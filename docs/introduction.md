@@ -93,7 +93,6 @@ In the below, we show the distribution of the CULane dataset accross various sce
 
 The figure below shows the labled markings for a small subset of the frames in CULane.
 
-<p align="center">
 
 <style>
 .image-caption {
@@ -106,10 +105,7 @@ The figure below shows the labled markings for a small subset of the frames in C
 <p align="center">
 	<img src="images/markings_culane.png" width="90%" />
 </p>
-{:.image-caption}
-*CULane markings*
-
-</p>
+{:.image-caption}CULane markings
 
 ### Spatial CNN Results:
 
