@@ -95,9 +95,19 @@ The figure below shows the labled markings for a small subset of the frames in C
 
 <p align="center">
 
-|![CULane markings ](images/markings_culane.png "CULane markings ") |
-| :---: |
-| CULane markings | 
+<style>
+.image-caption {
+  text-align: center;
+  font-size: .8rem;
+  color: light-grey;
+}
+</style>
+
+<p align="center">
+	<img src="images/markings_culane.png" width="90%" />
+</p>
+{:.image-caption}
+*CULane markings*
 
 </p>
 
