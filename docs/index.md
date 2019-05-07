@@ -3,8 +3,9 @@ layout: default
 title: Home
 nav_order: 1
 ---
- <head>
-    <link rel="icon" type="image/png" href="images/favicon1.png">
+
+<head>
+<link rel="icon" type="image/png" href="images/favicon1.png">
 </head>
 
 ## Team Members
@@ -19,20 +20,20 @@ Given the fact that we are headed towards autonomous driving vehicles, lane dete
 
 ## Table of Contents:
 * [Introduction](introduction.md)
-	- Motivation
-	- Spatial Convolutional Neural Network
+	- [Motivation](introduction.md/#Motivation)
+	- [Spatial Convolutional Neural Network](introduction.md/#Spatial-Convolutional-Neural-Network)
 * [Methodology](methodology.md)
-	- Adverse Condition - Glaze
-		1. DeGlazing
-		2. SCNN + DeGlaze Training
-	- Testing SCNN + DeGlaze
+	- [Adverse Condition - Glaze](methodology.md/#Adverse-Condition---Glaze)
+		1. [DeGlazing](methodology.md/#DeGlazing)
+		2. [SCNN + DeGlaze Training](methodology.md/#SCNN-+-DeGlaze-Training)
+	- [Testing SCNN + DeGlaze](methodology.md/Testing-SCNN-+-DeGlaze)
 * [Results](results.md)
-	- Evaluation Metric
-	- Results on Glaze Subset
+	- [Evaluation Metric](results.md/#Evaluation-Metric)
+	- [Results on Glaze Subset](results.md/#Results-on-Glaze-Subset)
 * [Conclusion](conclusion.md)
-	- Challenges
-	- Learnings
-	- Future Work
+	- [Challenges](conclusion.md/#Challenges)
+	- [Learnings](conclusion.md/#Learnings)
+	- [Future Work](conclusion.md/#Future-Work)
 * [References](references.md)
 
 ## Other Material:
