@@ -11,6 +11,8 @@ nav_order: 1
 
 ---
 # Abstract
+Given the fact that we are headed towards autonomous driving vehicles, lane detection becomes one of the keyaspects  for  it. Although, there has been some work in the domain of Lane Detection [Lee and Moon, 2018], [Wang et al., 2018], [Leng and Chen, 2010],   real   time implementation  of  robust  lane  detection  algorithms  is still  missing  for  adverse  visibility  conditions.   In  fact, Escanilla  et  al  [Hancock and Escanilla, 2018]  at  UW-Madison  have  done  some  novel  work  in  the  domain of   lane   detection   last   year. Over   the   years,   several  works  on  detection  of  lanes  in  adverse  conditions from image scenes [Shibata et al., 2014], [Fu et al., 2017], [Shen et al., 2018], [Li et al., 2017] have been proposed. We have researched over the task of lane detection in conditions such of glare, provide assistance in autonomous driving vehicles.  We are exploring the problem as form of multiple lane detection, and not only single lane.
+
 
 
 * [Introduction](introduction.md)
