@@ -129,7 +129,7 @@ In the table below, we can see the F1-measures of lane detection for various con
 
 
 <p align="center">
-	<img src="images/scnn_table.png" width="60%" />
+	<img src="images/scnn_table.png" width="55%" />
 </p>
 
 {:.image-caption}
