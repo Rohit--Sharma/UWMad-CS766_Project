@@ -20,13 +20,13 @@ Given the fact that we are headed towards autonomous driving vehicles, lane dete
 
 ## Table of Contents:
 * [Introduction](introduction.md)
-	- [Motivation](introduction.md/#Motivation)
-	- [Spatial Convolutional Neural Network](introduction.md/#Spatial-Convolutional-Neural-Network)
+	- [Motivation](introduction.md/#motivation)
+	- [Spatial Convolutional Neural Network](introduction.md/#spatial-convolutional-neural-network)
 * [Methodology](methodology.md)
 	- [Adverse Condition - Glaze](methodology.md/#Adverse-Condition---Glaze)
 		1. [DeGlazing](methodology.md/#DeGlazing)
 		2. [SCNN + DeGlaze Training](methodology.md/#SCNN-+-DeGlaze-Training)
-	- [Testing SCNN + DeGlaze](methodology.md/Testing-SCNN-+-DeGlaze)
+	- [Testing SCNN + DeGlaze](methodology.md/#Testing-SCNN-+-DeGlaze)
 * [Results](results.md)
 	- [Evaluation Metric](results.md/#Evaluation-Metric)
 	- [Results on Glaze Subset](results.md/#Results-on-Glaze-Subset)
