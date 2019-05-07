@@ -95,7 +95,7 @@ The figure below shows the labled markings for a small subset of the frames in C
 
 <p align="center">
 
-|![CULane markings ](images/markings_culane.png "CULane markings ")
+| ![CULane markings ](images/markings_culane.png "CULane markings ") |
 | :---: |
 | CULane markings | 
 
