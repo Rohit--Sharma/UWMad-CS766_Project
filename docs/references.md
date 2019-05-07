@@ -19,3 +19,4 @@
 18. [Wang et al., 2017]  Wang,  Y.,  Liu,  S.,  Chen,  C.,  andZeng, B. (2017).  A hierarchical approach for rain orsnow removing in a single color image.IEEE Trans-actions on Image Processing, 26(8):3936–3950.
 19. [Wang et al., 2018]  Wang,  Z.,  Ren,  W.,  and  Qiu,  Q.(2018).  Lanenet:  Real-time lane detection networksfor autonomous driving.CoRR, abs/1807.01726.
 20. [Yang et al., 2010]  Yang,  Q.,  Wang,  S.,  and Ahuja,  N.(2010).   Real-time specular highlight removal usingbilateral filtering.   InEuropean conference on Com-puter vision, pages 87–100. Springer.
+21. Ingle, Atul, Andreas Velten, and Mohit Gupta. High Flux Passive Imaging with Single-Photon Sensors. arXiv preprint arXiv:1902.10190 (2019).
