@@ -33,6 +33,9 @@ Given the fact that we are headed towards autonomous driving vehicles, lane dete
 - We learned about the complete flow of lane detection procedure involving label generation (which in itself is very challenging and involves curve fitting techniques to generate pixel markings from manual markings), training, lane prediction and evaluation etc.. 
 
 ### Future Work:
+- We have currently tested approaches such as optical flow and heuristic based deglazing to detect and interpolate glaze areas in the road images having glaze. Though we tried to train the model specifically on such images for better detection in glaze conditions, the problem of less dataset did not help in learning a good model. Since, we can see that only the testing of these images on normally trained model can lead to slight improvement, one direction is to learn specific model for deglaze images. 
+- For now, we have kept our focus restricted to glaze images only in adverse visibility conditions in lane detection. There are several such cases which require specific handling as we have explained above such as night, crowded, no line, shadow, curve etc.. Similar to our approach for glaze images, all these conditions can be looked more specifically. Further, this may require a pre-detection of different adverse conditions and use of ensemble of models trained on specific cases for overall improvement.
+- Further, we were currently restricted to images available to us collected earlier without camera control and single setting. However, we can control the exposure time available to images in continuous different frames, which can help in better detection of glaze.
 
 ## [References](references.md)
 
