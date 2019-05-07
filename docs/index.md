@@ -6,6 +6,7 @@ nav_order: 1
  <head>
     <link rel="icon" type="image/png" href="images/favicon1.png">
 </head>
+
 ## Team Members
 - [Rohit Kumar Sharma](mailto:rsharma@cs.wisc.edu)
 - [Varun Batra](mailto:vbatra@wisc.edu)
